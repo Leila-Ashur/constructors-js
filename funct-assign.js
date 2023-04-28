@@ -11,10 +11,13 @@ addItem("Orange",170);
 console.log(inventoryItems);
 console.log(inventoryQuantities);
 // Write a function to update the stock quantity of an existing item
-function updateItemQuantity(name, quantity) {
+function updateItemQuantity(name, quantity) {[]
   const index = inventoryItems.indexOf(name);
   if (index !== -1) {
     inventoryQuantities[index] = quantity;
+  }
+  else{
+    console.log("The item is not found");
   }
 }
 updateItemQuantity("Lemon",120)
@@ -30,19 +33,11 @@ function getTotalItems() {
 console.log(getTotalItems())
 // Write a function to find the item with the lowest stock quantity
 function LowestStockItem() {
-  let lowest = Infinity;
-  let lowestItem = '';
-  for (let i = 0; i < inventoryQuantities.length; i++) {
-    if (inventoryQuantities[i] < lowest) {
-      lowest = inventoryQuantities[i];
-      lowestItem = inventoryItems[i];
-    }
-  }
-  return lowestItem;
+  let min=Math.min(...inventoryQuantities)
+  let index=inventoryQuantities.indexOf(min)
+  console.log(inventoryItems[index]);
 }
-console.log(LowestStockItem())
-
-
+LowestStockItem()
 
 
 
